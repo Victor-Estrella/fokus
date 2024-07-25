@@ -22,7 +22,7 @@ musica.loop = true
 
 
 let intervaloId = null;
-let tempoDecorridoEmSegundos = 25; 
+let tempoDecorridoEmSegundos = 1500; 
 mostrarTempo()
 
 function alterarBanner(contexto) {
