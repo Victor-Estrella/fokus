@@ -15,9 +15,9 @@ const startPauseBtnIcon = document.querySelector(".app__card-primary-butto-icon"
 const buttons = document.querySelectorAll('.app__card-button');
 const musicaFocoInput = document.querySelector('#alternar-musica');
 
-const audioPlay = new Audio('/sons/play.wav');
-const audioPause = new Audio('/sons/pause.mp3');
-const musica = new Audio('/sons/luna-rise-part-one.mp3');
+const audioPlay = new Audio('./sons/play.wav');
+const audioPause = new Audio('./sons/pause.mp3');
+const musica = new Audio('./sons/luna-rise-part-one.mp3');
 musica.loop = true
 
 
@@ -26,7 +26,7 @@ let tempoDecorridoEmSegundos = 1500;
 mostrarTempo()
 
 function alterarBanner(contexto) {
-    banner.setAttribute('src', `/imagens/${contexto}.png`)
+    banner.setAttribute('src', `./imagens/${contexto}.png`)
 
     switch (contexto) {
         case "foco":
@@ -64,19 +64,19 @@ function alterarContexto(contexto) {
 }
 
 focoBtn.addEventListener("click", () => {
-    tempoDecorridoEmSegundos = 25;
+    tempoDecorridoEmSegundos = 1500;
     alterarContexto("foco")
     focoBtn.classList.add('active')
 })
 
 shortBtn.addEventListener("click", () => {
-    tempoDecorridoEmSegundos = 5;
+    tempoDecorridoEmSegundos = 300;
     alterarContexto("short-break")
     shortBtn.classList.add('active')
 })
 
 longBtn.addEventListener("click", () => {
-    tempoDecorridoEmSegundos = 15;
+    tempoDecorridoEmSegundos = 900;
     alterarContexto("long-break")
     longBtn.classList.add('active')
 })
@@ -123,13 +123,13 @@ function iniciarOuPausar() {
     }
     audioPlay.play();
     startPauseBtnText.textContent = "Pausar"
-    startPauseBtnIcon.setAttribute('src', `/imagens/pause.png`)
+    startPauseBtnIcon.setAttribute('src', `./imagens/pause.png`)
     intervaloId = setInterval(contagemRegressiva, 1000)
 }
 
 function zerar() {
     clearInterval(intervaloId)
-    startPauseBtnIcon.setAttribute('src', `/imagens/play_arrow.png`)
+    startPauseBtnIcon.setAttribute('src', `./imagens/play_arrow.png`)
     startPauseBtnText.textContent = "Começar"
     intervaloId = null
 }
